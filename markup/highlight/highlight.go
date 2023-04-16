@@ -19,6 +19,7 @@ import (
 	gohtml "html"
 	"html/template"
 	"io"
+	"os"
 	"strings"
 
 	"github.com/alecthomas/chroma/v2"
@@ -54,6 +55,7 @@ func init() {
 }
 
 func New(cfg Config) Highlighter {
+    lexers.Register(chroma.MustNewXMLLexer(os.DirFS("/Users/rdyer/hugo"), "boa.xml"))
 	return chromaHighlighter{
 		cfg: cfg,
 	}
