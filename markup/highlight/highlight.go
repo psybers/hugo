@@ -56,7 +56,7 @@ func init() {
 
 func New(cfg Config) Highlighter {
 	for _, lexer := range cfg.Lexers {
-		lex, err := chroma.NewXMLLexer(os.DirFS("."), lexer)
+		lex, err := chroma.NewXMLLexer(os.DirFS("./lexers/"), lexer)
 		if err == nil {
 			lexers.Register(lex)
 		}
